@@ -1,6 +1,7 @@
 // app.js
 require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const viewsRouter = require('./router/viewsRouter');
 
@@ -18,6 +19,15 @@ app.use(express.json());
 
 // Configurar a pasta 'public' para arquivos estáticos (CSS, JS, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Configuração da sessão
+app.use(session({
+    secret: 'seuSegredoAqui',
+    resave: false,
+    saveUninitialized: true
+}));
+
 
 // Usar o router para as views
 app.use('/', viewsRouter);
