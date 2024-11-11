@@ -434,5 +434,26 @@ btcnpjGeneration.addEventListener("click", () => {
 
 });
 
+btPdfGeneration.addEventListener("click", async () => {
+    const razaoSocial = document.getElementById('razao_social').value;
+    const codCliente = document.getElementById('cod_cliente').value;
+    const pdfBase64 = await html2pdf().set(options).from(content).outputPdf('datauristring');
+
+    try {
+        const response = await fetch('/send-pdf', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ pdfBase64, razaoSocial, codCliente }) // Envia os dados necessários
+        });
+
+        const result = await response.text();
+        alert(result);
+    } catch (error) {
+        console.error('Erro ao enviar o PDF:', error);
+        alert('Erro ao enviar o PDF por e-mail');
+    }
+});
 
 
