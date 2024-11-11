@@ -67,8 +67,8 @@
 }
 
 #button_pdf:hover {
-    background: linear-gradient(90deg,#156405 0%,#b7ecdc 100%);
-    color:#022c0b;
+    background: linear-gradient(90deg,rgba(225,0,152) 0%,#f18fc7 100%);
+    color:#fafcfa;
     font-weight: bold;
 
 }

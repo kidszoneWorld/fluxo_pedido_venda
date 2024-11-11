@@ -1,9 +1,6 @@
-
 const btPdfGeneration = document.getElementById('button_pdf');
 
-
 btPdfGeneration.addEventListener("click", async () => {
-
 
     const elementsToHide = document.querySelectorAll('.no-print');
     elementsToHide.forEach(el => el.style.display = 'none');
@@ -14,7 +11,6 @@ btPdfGeneration.addEventListener("click", async () => {
     
     const filename = `Pedido de Venda ${razaoSocial} - ${codCliente}.pdf`; // Atualiza o filename
 
-
     const options = {
         margin: [0, 0, 0, 0],
         filename: filename , // valor padrão, será sobrescrito na função
@@ -23,20 +19,13 @@ btPdfGeneration.addEventListener("click", async () => {
         pagebreak: { mode: 'avoid-all' }
     };
 
-    
     html2pdf().set(options).from(content).save().then(async () => {
         alert('PDF criado e baixado no downloads');
 
         const pdfBase64 = await html2pdf().set(options).from(content).outputPdf('datauristring');
 
-        // Adiciona a etapa de confirmação de envio do e-mail
-        const confirmSend = confirm("Você deseja realmente enviar este e-mail?");
-        if (!confirmSend) {
-            alert("Envio de e-mail cancelado.");
-            elementsToHide.forEach(el => el.style.display = 'block');
-            return; // Sai da função se o usuário clicar em "Não"
-        }
-
+        // Bloco de código de envio de e-mail desativado
+        /*
         try {
             const response = await fetch('/send-pdf', {
                 method: 'POST',
@@ -50,8 +39,8 @@ btPdfGeneration.addEventListener("click", async () => {
             alert(result); // Mostra mensagem de sucesso ou erro
         } catch (error) {
             console.error('Erro ao enviar o PDF:', error);
-            alert('Erro ao enviar o PDF por e-mail');
         }
+        */
 
         elementsToHide.forEach(el => el.style.display = 'block');
     });
