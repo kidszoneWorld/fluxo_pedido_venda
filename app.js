@@ -5,8 +5,6 @@ const path = require('path');
 const viewsRouter = require('./router/viewsRouter');
 
 
-
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
