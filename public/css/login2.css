@@ -4,7 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-color: rgba(225,0,152);
+    /*background-color: rgba(225,0,152);*/  
+    background-image: url(/images/backgrond.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .imagem{
