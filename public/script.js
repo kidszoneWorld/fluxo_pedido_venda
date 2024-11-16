@@ -108,6 +108,47 @@ function cnpjInvalido(cnpj) {
 }
 
 
+// Função para limpar todos os campos relacionados ao cliente
+function limparCamposCliente() {
+    document.getElementById('razao_social').value = '';
+    document.getElementById('ie').value = '';
+    document.getElementById('representante').value = '';
+    document.getElementById('endereco').value = '';
+    document.getElementById('bairro').value = '';
+    document.getElementById('cidade').value = '';
+    document.getElementById('uf').value = '';
+    document.getElementById('cep').value = '';
+    document.getElementById('telefone').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('email_fiscal').value = '';
+    document.getElementById('cod_cliente').value = '';
+    document.getElementById('pay').value = '';
+    document.getElementById('group').value = '';
+    document.getElementById('transp').value = '';
+    document.getElementById('codgroup').value = '';
+}
+
+// Adiciona o evento de focus no campo CNPJ
+document.getElementById('cnpj').addEventListener('focus', function () {
+    limparCamposCliente(); // Limpa todos os campos relacionados ao cliente
+});
+
+// Função para buscar os dados do cliente pelo CNPJ
+function buscarCliente(cnpj) {
+    // Ajusta o CNPJ com zeros à esquerda
+    cnpj = ajustarCNPJ(cnpj);
+
+    for (let i = 1; i < clientesData.length; i++) {
+        let cnpjCliente = ajustarCNPJ(clientesData[i][1].toString());
+        if (cnpjCliente === cnpj) {
+            return clientesData[i];
+        }
+    }
+    return null;
+}
+
+
+
 // Função para preencher os campos ao digitar o CNPJ
 document.getElementById('cnpj').addEventListener('blur', function () {
     
