@@ -273,6 +273,31 @@
         flex-direction: column;
         gap: 5px;
     }
+
+
+    #button_pdf::after{
+        content: "Salvar em PDF";
+        color: #fafcfa;
+        font-size: 107%;
+        position: absolute; /* Garante que o ::after não interfira no layout */
+        top: 50%; /* Centraliza verticalmente */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translate(-50%, -50%); /* Alinha corretamente o texto */
+        text-align: center;
+        display: flex; /* Alternativa para alinhamento */
+        align-items: center; /* Alinha verticalmente */
+        justify-content: center; /* Alinha horizontalmente */
+        
+    
+    }
+    
+    #button_pdf {
+        position: relative; /* Necessário para que o ::after seja posicionado corretamente */
+        color: transparent; /* Oculta o texto original */
+        overflow: hidden; /* Evita que o ::after interfira no tamanho do botão */
+    }
+
+
     .form-group {
         grid-template-columns: 1fr;
     }
