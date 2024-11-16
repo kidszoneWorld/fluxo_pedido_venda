@@ -19,7 +19,7 @@ function authenticateUser(req, res) {
         req.session.user = REPRESENTANTES[email];
         res.redirect('/');
     } else {
-        res.send('Acesso negado, contate o administrador');
+        res.send('Acesso negado, tente novamente ou contate o administrador');
     }
 }
 

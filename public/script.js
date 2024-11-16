@@ -437,6 +437,7 @@ btcnpjGeneration.addEventListener("click", () => {
 btPdfGeneration.addEventListener("click", async () => {
     const razaoSocial = document.getElementById('razao_social').value;
     const codCliente = document.getElementById('cod_cliente').value;
+    const representante = document.getElementById('representante').value
     const pdfBase64 = await html2pdf().set(options).from(content).outputPdf('datauristring');
 
     try {
@@ -445,7 +446,7 @@ btPdfGeneration.addEventListener("click", async () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ pdfBase64, razaoSocial, codCliente }) // Envia os dados necessários
+            body: JSON.stringify({ pdfBase64, razaoSocial, codCliente ,representante}) // Envia os dados necessários
         });
 
         const result = await response.text();
@@ -455,5 +456,4 @@ btPdfGeneration.addEventListener("click", async () => {
         alert('Erro ao enviar o PDF por e-mail');
     }
 });
-
 
