@@ -27,7 +27,7 @@ exports.sendPdf = async (req, res) => {
         // Configurando o e-mail
         await transporter.sendMail({
             from: 'kidzonekidszonemail@gmail.com', // Seu e-mail do Gmail
-            to: ['alxnvn@yahoo.com.br','alex.lima@kidszoneworld.com.br'], // Destinatário do e-mail
+            to: ['alxnvn@yahoo.com.br','alex.lima@kidszoneworld.com.br','erick.almeida@kidszoneworld.com.br'], // Destinatário do e-mail
             subject: subject, // Assunto dinâmico
             text: `Segue em anexo o PDF gerado para o cliente ${razaoSocial} - ${codCliente} representante ${representante}`,
             attachments: [
