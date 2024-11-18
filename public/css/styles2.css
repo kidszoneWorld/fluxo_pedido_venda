@@ -189,8 +189,13 @@
         padding: 10px 0;
     }
 
+#email_rep  {
+    display: none;
+}
 
-
+.email_rep {
+    display: none;
+}
 
 /* Media Queries para responsividade */
 
